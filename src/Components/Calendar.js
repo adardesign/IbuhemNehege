@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import Hebcal from 'hebcal';
-
-class Calendar extends Component {
+import Calendar from 'react-calendar';
+ 
+class CalendarView extends Component {
+  state = {
+    date: new Date(),
+  }
+ 
+  onChange = date => this.setState({ date })
+ 
   render() {
-    let year = new Hebcal();
-    console.log(year)
     return (
-      <div className="Calander">
-          <h1>{year.year}</h1>
-          
-          This year is a: {year.isLeapYear() ? "Ibur": "pashut"} Year
-          <ul>
-            {Object.keys(year.holidays).map( e => {
-              return (<li key={e}>{year.holidays[e][0].desc[2]}</li>)
-            })}
-          </ul>
+      <div>
+        <Calendar
+          calendarType="Hebrew"
+          tileContent={({ date, view }) => view === 'month' && date.getDay() === 0 ? <p>It's Sunday!</p> : null}
+          onChange={this.onChange}
+          value={this.state.date}
+        />
       </div>
     );
   }
 }
-
-export default Calendar;
+export default CalendarView;
