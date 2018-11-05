@@ -12,3 +12,8 @@
   }
   return mm + "/" + dd + "/" + yy;
 };
+
+
+export function format24(hours) {
+  return hours > 12 ? hours - 12 : hours; 
+};

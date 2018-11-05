@@ -1,23 +1,41 @@
-import React, { Component } from 'react';
-import './styles/App.css';
-import CalendarView from './Components/Calendar';
-import List from './Components/List';
-import Today from './Components/Today';
+import React, { Component } from "react";
+import "./styles/App.css";
+import AppHeader from "./Components/AppHeader";
+import Today from "./Components/Today";
+import ResourceLinks from "./Components/ResourceLinks";
+import { withStyles } from "@material-ui/core/styles";
 
+import PropTypes from "prop-types";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Ibuhem Nehage</h1>
-          <Today/>
-          <CalendarView/>
-          <List/>
-        </header>
-      </div>
-    );
+const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  paper: {
+    padding: theme.spacing.unit,
+    textAlign: "center",
+    color: theme.palette.text.secondary
   }
-}
+});
 
-export default App;
+function App(props) {
+  const { classes } = props;
+  return (
+    <div className="App">
+      <AppHeader></AppHeader>
+      <div className={classes.root}>
+        <Grid container spacing={24}>
+          <Paper className={classes.paper}>
+            <Today />
+          </Paper>
+          <Paper className={classes.paper}>
+            <ResourceLinks/>
+          </Paper>
+        </Grid>
+      </div>
+    </div>
+  );
+}
+export default withStyles(styles)(App);

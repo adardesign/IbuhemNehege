@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
     "hebcal-fixed": "^2.2.8",
     "react": "^16.6.0",
     "react-calendar": "^2.17.5",
@@ -18,6 +20,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "./",
   "browserslist": [
     ">0.2%",
     "not dead",

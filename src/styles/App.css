@@ -1,3 +1,7 @@
 h1{
-  color: red;
+  color: #444;
+}
+
+ul.unstyled{
+  list-style: none;
 }
